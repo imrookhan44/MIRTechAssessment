@@ -1,5 +1,5 @@
 
-export type ClientStatus = 'active' | 'inactive';
+export type ClientStatus = 'active' | 'inactive' | 'all';
 export type filterByDate = 'all' | 'today' | 'yesterday'
 export interface Client {
   id: number;

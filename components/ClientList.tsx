@@ -10,9 +10,9 @@ interface ClientListProps {
 }
 
 const ClientList: React.FC<ClientListProps> = ({ clients, onStatusChange, handleDelete }) => {
-  const [statusFilter, setStatusFilter] = useState<ClientStatus>("inactive");
+  const [statusFilter, setStatusFilter] = useState<ClientStatus>("all");
   const [filterByDate, setFilterByDate] = useState<filterByDate>("all");
-  const filteredClients = statusFilter === "inactive" ? clients
+  const filteredClients = statusFilter === "all" ? clients
     : clients.filter((client) => client.status === statusFilter);
   return (
     <div>
@@ -33,6 +33,7 @@ const ClientList: React.FC<ClientListProps> = ({ clients, onStatusChange, handle
                       onChange={(e) => setStatusFilter(e.target.value as ClientStatus)}
                       className="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
                     >
+                      <option value="all">All</option>
                       <option value="active">Active</option>
                       <option value="inactive">Inactive</option>
                     </select>
